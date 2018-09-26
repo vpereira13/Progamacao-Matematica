@@ -11,5 +11,4 @@ O intuito é utilizar a linguagem Python 3 com o pacote PuLP, um _toolkit_ de pr
 
 ## Licença
 Como está no repositório, os códigos desenvolvidos e publicados nesse
-repositório estarão sob a licença
-[MIT](https://mit-license.org/).
+repositório estarão sob a licença [MIT](https://mit-license.org/).

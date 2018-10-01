@@ -20,10 +20,14 @@ import pulp
 
 model = pulp.LpProblem('exercicio1', pulp.LpMaximize)
 
-td = pulp.LpVariable("td", lowBound=0)  # tempo de estudo
-te = pulp.LpVariable("te", lowBound=0)  # tempo de diversão
+# Variáveis
+# tempo gasto em diversão
+td = pulp.LpVariable("td", lowBound=0)
+# tempo gasto em estudo
+te = pulp.LpVariable("te", lowBound=0)
 
-model += 2*td + te  # função objetivo
+# Função objetivo
+model += 2 * td + te
 
 # sujeito a
 model += td + te <= 10, 'tempo maximo de estudo'
@@ -32,7 +36,7 @@ model += td <= 4, 'no maximo 4h de diversao'
 # model += td >= 0, 'valor nao negativo'
 # model += te >= 0, 'valor nao negativo'
 
-# resolvendo
+# Resolvendo
 model.solve(pulp.solvers.GLPK())
 
 for x in model.variables():

@@ -30,11 +30,11 @@ g1 = pulp.LpVariable("g1", cat='Integer', lowBound=0)
 g2 = pulp.LpVariable("g2", cat='Integer', lowBound=0)
 
 # Função objetivo
-model += c1 * 30 + c2 * 20 + g1 * 35 + g2 * 40
+model += c1 + c2 + g1 + g2
 
 # sujeito a
-model += c1 + g1 <= 40 * 60, 'mao de obra disponivel processo P1'
-model += c2 + g2 <= 30 * 60, 'mao de obra disponivel processo P2'
+model += c1 * 30 + g1 * 35 <= 40 * 60, 'mao de obra disponivel processo P1'
+model += c2 * 20 + g2 * 40 <= 30 * 60, 'mao de obra disponivel processo P2'
 # model += c1 <= 0, 'valor nao negativo'
 # model += c2 <= 0, 'valor nao negativo'
 # model += g1 <= 0, 'valor nao negativo'
@@ -47,4 +47,4 @@ for x in model.variables():
     print("{} = {}".format(x, x.value()))
 
 # resultado da função objetivo
-print('O valor da solução é {}.'.format(model.objective.value()))
+# print('O valor da solução é {}.'.format(model.objective.value()))
